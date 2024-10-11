@@ -14,7 +14,7 @@ export function BalanceSheetSession({ session }: { session: ISection }) {
 
         {session.Rows.map((row, index) => {
           return (
-            <tr key={session.Title + index} className={row.RowType === 'SummaryRow' ? 'font-bold' : ''}>
+            <tr key={index} className={row.RowType === 'SummaryRow' ? 'font-bold' : ''}>
               <BalanceSheetRow row={row} />
             </tr>
           );

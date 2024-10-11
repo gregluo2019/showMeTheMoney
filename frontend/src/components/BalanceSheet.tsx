@@ -5,20 +5,25 @@ import { ISection, IHeader } from '/src/hooks/types';
 
 export function BalanceSheet() {
   const { data, loading } = useFetchData('http://localhost:3001/api/balance');
+
   const reportsRows = data?.Reports?.[0]?.Rows;
   const reportsRowsSections: ISection[] = reportsRows?.filter((reportRow) => reportRow.RowType === 'Section');
   const reportsRowsHeader: IHeader = reportsRows?.find((reportRow) => reportRow.RowType === 'Header');
-  // console.log({ reportsRowsHeader });
+  const reportTitle = data?.Reports?.[0]?.ReportTitles?.join(' - ');
+
+  // console.log(data?.Reports);
   // console.log({ reportsRowsSections });
-  console.log({ reportsRows });
+  // console.log({ reportsRows });
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <>
-      <table border='1' style={{ borderCollapse: 'collapse', width: '70%', margin: '20px auto' }}>
+    <main>
+      <h2 className='text-center text-xl mt-4'>{reportTitle}</h2>
+
+      <table style={{ borderCollapse: 'collapse', width: '70%', margin: '20px auto' }}>
         <tbody>
           <tr>
             <td>
@@ -43,6 +48,6 @@ export function BalanceSheet() {
           </tr>
         </tbody>
       </table>
-    </>
+    </main>
   );
 }
