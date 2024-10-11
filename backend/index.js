@@ -1,9 +1,11 @@
 import express from "express";
 import https from "https";
 import http from "http";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const apiHost = "http://localhost:3000";
 const apiPath = "/api.xro/2.0/Reports/BalanceSheet";
@@ -21,6 +23,7 @@ app.get("/api/balance", (req, res) => {
         try {
           const parsedData = JSON.parse(data);
           console.log("parsedData", parsedData);
+          console.log("parsedData.Rows", parsedData.Rows);
 
           res.status(200).json(parsedData);
         } catch (error) {
