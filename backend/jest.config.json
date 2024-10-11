@@ -1,0 +1,6 @@
+{
+  "testEnvironment": "node",
+  "verbose": true,
+  "coverageDirectory": "coverage",
+  "collectCoverage": true
+}

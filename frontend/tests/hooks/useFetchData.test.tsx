@@ -18,7 +18,7 @@ describe('useFetchData hook', () => {
     await waitFor(() => expect(result.current.error).toBe(true));
   });
 
-  it('should show get data', async () => {
+  it('should get data', async () => {
     const mResponse = {
       ok: true,
       json: jest.fn().mockResolvedValue(mockData),

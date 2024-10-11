@@ -1,16 +1,24 @@
 {
-  "name": "playground-nodejs",
+  "name": "show-me-the-money",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
   "license": "ISC",
   "description": "",
+  "scripts": {
+    "test": "jest --detectOpenHandles"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.0"
   },
-  "type": "module"
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
 }

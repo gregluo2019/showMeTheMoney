@@ -1,16 +1,12 @@
 import express from "express";
-import https from "https";
+import { Request, Response } from "express";
 import http from "http";
-import cors from "cors";
 
-const app = express();
-app.use(express.json());
-app.use(cors());
-
+const router = express.Router();
 const apiHost = "http://localhost:3000";
 const apiPath = "/api.xro/2.0/Reports/BalanceSheet";
 
-app.get("/api/balance", (req, res) => {
+router.get("/balance", (req: Request, res: Response) => {
   http
     .get(`${apiHost}${apiPath}`, (externalRes) => {
       let data = "";
@@ -39,6 +35,4 @@ app.get("/api/balance", (req, res) => {
     });
 });
 
-app.listen(3001, () => {
-  console.log(`Listening on port 3001`);
-});
+export default router;
