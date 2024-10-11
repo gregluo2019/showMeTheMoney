@@ -1,29 +1,32 @@
 'use client';
-import { useFetchData } from '/src/hooks/useFetchData';
+import { useFetchData } from '@/src/hooks/useFetchData';
 import { BalanceSheetSession } from './BalanceSheetSession';
-import { ISection, IHeader } from '/src/hooks/types';
+import { ISection, IHeader } from '@/src/hooks/types';
 
 export function BalanceSheet() {
-  const { data, loading } = useFetchData('http://localhost:3001/api/balance');
+  const { error, data, loading } = useFetchData('http://localhost:3001/api/balance');
 
   const reportsRows = data?.Reports?.[0]?.Rows;
   const reportsRowsSections: ISection[] = reportsRows?.filter((reportRow) => reportRow.RowType === 'Section');
   const reportsRowsHeader: IHeader = reportsRows?.find((reportRow) => reportRow.RowType === 'Header');
   const reportTitle = data?.Reports?.[0]?.ReportTitles?.join(' - ');
 
-  // console.log(data?.Reports);
+  console.log(data);
   // console.log({ reportsRowsSections });
   // console.log({ reportsRows });
 
   if (loading) {
     return <div>Loading...</div>;
   }
+  if (error) {
+    return <div>Error happened.</div>;
+  }
 
   return (
     <main>
       <h2 className='text-center text-xl mt-4'>{reportTitle}</h2>
 
-      <table style={{ borderCollapse: 'collapse', width: '70%', margin: '20px auto' }}>
+      <table className='w-10/12 my-5 mx-auto' data-testid='main-table'>
         <tbody>
           <tr>
             <td>

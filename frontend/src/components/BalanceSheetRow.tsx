@@ -1,6 +1,6 @@
 'use client';
-import { IRow } from '/src/hooks/types';
-import { isNumeric } from '/src/utils/utilities';
+import { IRow } from '@/src/hooks/types';
+import { isNumeric } from '@/src/utils/utilities';
 
 export function BalanceSheetRow({ row }: { row: IRow }) {
   return (

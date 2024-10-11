@@ -1,6 +1,6 @@
 'use client';
 import { BalanceSheetRow } from './BalanceSheetRow';
-import { ISection } from '/src/hooks/types';
+import { ISection } from '@/src/hooks/types';
 
 export function BalanceSheetSession({ session }: { session: ISection }) {
   return (
