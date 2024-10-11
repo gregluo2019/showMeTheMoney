@@ -9,7 +9,6 @@
     "printWidth": 200,
     "endOfLine": "auto",
     "jsxSingleQuote": true,
-    "singleAttributePerLine": false,
-    "plugins": ["prettier-plugin-tailwindcss"]
+    "singleAttributePerLine": false
   }
   

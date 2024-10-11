@@ -26,7 +26,7 @@ export function useFetchData(url) {
     return () => {
       ignore = true;
     };
-  }, []);
+  }, [url]);
 
   return { loading, data };
 }

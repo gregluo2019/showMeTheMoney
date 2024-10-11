@@ -10,11 +10,11 @@ export interface ISection {
 }
 
 export interface IRow {
-  RowType: 'Row';
+  RowType: 'Row' | 'SummaryRow';
   Cells: ICell[];
 }
 
 export interface ICell {
   Value: string;
-  Attributes?: any[];
+  Attributes?: [];
 }
