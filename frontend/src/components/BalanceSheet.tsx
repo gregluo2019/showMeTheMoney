@@ -9,11 +9,22 @@ export function BalanceSheet() {
   const reportsRowsSections: ISection[] = reportsRows?.filter((reportRow) => reportRow.RowType === 'Section');
   const reportsRowsHeader: IHeader = reportsRows?.find((reportRow) => reportRow.RowType === 'Header');
   // console.log({ reportsRowsHeader });
-  console.log({ reportsRowsSections });
+  // console.log({ reportsRowsSections });
+  console.log({ reportsRows });
+
+  function getClasses(row: IRow) {
+    let classes = '';
+    if (row.RowType === 'SummaryRow') {
+      classes += 'border-b-4 border-dotted font-bold';
+    }
+
+    return classes;
+  }
 
   if (loading) {
     return <div>Loading...</div>;
   }
+
   return (
     <table border='1' style={{ borderCollapse: 'collapse', width: '70%', margin: '20px auto' }}>
       <thead>
@@ -31,7 +42,7 @@ export function BalanceSheet() {
         {reportsRowsSections?.map((sectionRow, index1) =>
           sectionRow.Rows.map((row, index2) => {
             return (
-              <tr key={index1 + index2}>
+              <tr key={index1 + index2} className={getClasses(row)}>
                 <BalanceSheetRow row={row} />
               </tr>
             );
