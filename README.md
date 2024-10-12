@@ -20,6 +20,7 @@ The testing coverage rate is 100%. It includes the following files in the tests 
     * should handle errors thrown in routes
     * should handle async errors
 * mockData.ts
+
 ![backend tests](screenshots/backend-tests.png)
 
 ## Backend file structure
