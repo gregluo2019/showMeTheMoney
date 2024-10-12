@@ -11,10 +11,6 @@ export function BalanceSheet() {
   const reportsRowsHeader: IHeader = reportsRows?.find((reportRow: ISection | IHeader) => reportRow.RowType === 'Header');
   const reportTitle = (data as any)?.Reports?.[0]?.ReportTitles?.join(' - ');
 
-  console.log(data);
-  // console.log({ reportsRowsSections });
-  // console.log({ reportsRows });
-
   if (loading) {
     return <div>Loading...</div>;
   }
