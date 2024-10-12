@@ -117,7 +117,7 @@ const mockSession = {
   ],
 };
 
-export const mockData = {
+const mockData = {
   Status: "OK",
   Reports: [
     {
@@ -153,3 +153,5 @@ export const mockData = {
     },
   ],
 };
+
+export default mockData;
