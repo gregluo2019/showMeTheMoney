@@ -1,15 +1,15 @@
 'use client';
 import { useFetchData } from '@/src/hooks/useFetchData';
 import { BalanceSheetSession } from './BalanceSheetSession';
-import { ISection, IHeader } from '@/src/hooks/types';
+import { ISection, IHeader } from '@/src/utils/types';
 
 export function BalanceSheet() {
-  const { error, data, loading } = useFetchData('http://localhost:3001/api/balance');
+  const { error, data, loading } = useFetchData('http://localhost:3001/api/balanceSheet');
 
-  const reportsRows = data?.Reports?.[0]?.Rows;
-  const reportsRowsSections: ISection[] = reportsRows?.filter((reportRow) => reportRow.RowType === 'Section');
-  const reportsRowsHeader: IHeader = reportsRows?.find((reportRow) => reportRow.RowType === 'Header');
-  const reportTitle = data?.Reports?.[0]?.ReportTitles?.join(' - ');
+  const reportsRows = (data as any)?.Reports?.[0]?.Rows;
+  const reportsRowsSections: ISection[] = reportsRows?.filter((reportRow: ISection | IHeader) => reportRow.RowType === 'Section');
+  const reportsRowsHeader: IHeader = reportsRows?.find((reportRow: ISection | IHeader) => reportRow.RowType === 'Header');
+  const reportTitle = (data as any)?.Reports?.[0]?.ReportTitles?.join(' - ');
 
   console.log(data);
   // console.log({ reportsRowsSections });
