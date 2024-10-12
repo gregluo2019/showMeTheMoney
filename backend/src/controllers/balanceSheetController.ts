@@ -7,7 +7,7 @@ export const balanceSheetUrl = `${apiHost}${apiPath}`;
 
 export const getBalanceSheet = async (req: Request, res: Response) => {
   try {
-    const externalRes = await axios.get(balanceSheetUrl, { timeout: 5000 });
+    const externalRes = await axios.get(balanceSheetUrl);
     const data = externalRes.data;
     console.log("data", data);
 
@@ -15,7 +15,6 @@ export const getBalanceSheet = async (req: Request, res: Response) => {
   } catch (err: any) {
     res.status(500).json({
       message: "Fetching data failed",
-      error: err.message || err.cause,
     });
   }
 };

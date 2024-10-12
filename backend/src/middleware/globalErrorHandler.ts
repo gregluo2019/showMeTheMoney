@@ -9,7 +9,6 @@ const globalErrorHandler = (
   err.statusCode = err.statusCode || 500;
   err.status = err.status || "error";
 
-  //console.error("ERROR 💥", err);
   res.status(err.statusCode).json({
     status: err.status,
     message: "Internal Server Error: " + err.message,

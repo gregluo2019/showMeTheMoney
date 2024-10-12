@@ -1,5 +1,5 @@
 
-![UI](image-4.png)
+![UI](screenshots/ui.png)
 
 # Backend (port 3001)
 ## Implemented with Node.js, Express.js, Typescript, Axios, Cors
@@ -20,9 +20,10 @@ The testing coverage rate is 100%. It includes the following files in the tests 
     * should handle errors thrown in routes
     * should handle async errors
 * mockData.ts
+![backend tests](screenshots/backend-tests.png)
 
 ## Backend file structure
-![backend file structure](image-2.png)
+![backend file structure](screenshots/backend-file-structure.png)
 
 ## Commands
 * run in development: npm run dev
@@ -32,17 +33,17 @@ The testing coverage rate is 100%. It includes the following files in the tests 
 
 ## Containerise the backend in docker container
 Execute the command "docker compose up --build" to run the backend server in docker container
-![run backend server in docker container](image.png)
+![run backend server in docker container](screenshots/backend-in-docker.png)
 
 ## Note: use "http://host.docker.internal:3000" 
-do not use "http://localhost:3000" or "http://127.0.0.1:3000"
+do not use "http://localhost:3000" or "http://127.0.0.1:3000". Otherwise the API endpoint cannot get data from the container "jaypeng2015/show-me-the-money".
 ```
 const apiHost = "http://host.docker.internal:3000"; // "http://localhost:3000" "http://127.0.0.1:3000";
 ```
 
 
 # Frontend (port 3002)
-## Implemented with React 18, Next.js 14, Typescript, Tailwind CSS
+## Implemented with React 18, Next.js 14, Typescript 5, Tailwind CSS
 It includes the following files in the src folder:
 * Component: BalanceSheet 
 * Component: BalanceSheetRow 
@@ -58,8 +59,10 @@ The testing coverage rate is 100%. It includes the following files in the tests 
 * useFetchData.test.tsx
 * mockData.ts
 
+![frontend tests](screenshots/frontend-tests.png)
+
 ## Frontend file structure
-![frontend file structure](image-3.png)
+![frontend file structure](screenshots/frontend-file-structure.png)
 
 ## Commands
 * run in development: npm run dev
@@ -69,4 +72,4 @@ The testing coverage rate is 100%. It includes the following files in the tests 
 
 ## Containerise the frontend in docker container
 Execute the command "docker build -t my-react-app ." and "docker run -p 3002:80 my-react-app" to run the frontend in docker container
-![run frontend in docker container](image-1.png)
+![run frontend in docker container](screenshots/frontend-in-docker.png)

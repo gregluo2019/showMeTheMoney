@@ -6,7 +6,6 @@ describe("Global Error Handler", () => {
     const res = await request(app).get("/api/error");
 
     expect(res.status).toBe(500);
-
     expect(res.body).toHaveProperty("message");
     expect(res.body.message).toEqual(
       expect.stringContaining("Internal Server Error")
@@ -17,7 +16,6 @@ describe("Global Error Handler", () => {
     const res = await request(app).get("/api/async-error");
 
     expect(res.status).toBe(500);
-
     expect(res.body).toHaveProperty("message");
     expect(res.body.message).toEqual(
       expect.stringContaining("Internal Server Error")
