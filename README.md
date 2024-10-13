@@ -84,5 +84,5 @@ Execute the command "docker build -t my-react-app ." and "docker run -p 3002:80 
 ![run frontend in docker container](screenshots/frontend-in-docker.png)
 
 ## Note: 
-* The table is collapsible to hide/show details
-* Two ways in fetching data implemented in the hooks useFetchData and useFetchDataWithSWR
+* The table is collapsible to hide/show details.
+* Two ways in fetching data implemented in the hooks useFetchData and useFetchDataWithSWR.
