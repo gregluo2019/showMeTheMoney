@@ -44,19 +44,27 @@ const apiHost = "http://host.docker.internal:3000"; // "http://localhost:3000" "
 
 
 # Frontend (port 3002)
-## Implemented with React 18, Next.js 14, Typescript 5, Tailwind CSS
+## Implemented with React 18, Next.js 14, Typescript 5, Tailwind CSS, SWR
 It includes the following files in the src folder:
-* Component: BalanceSheet 
-* Component: BalanceSheetRow 
-* Component: BalanceSheetSession 
-* Hook: useFetchData 
+* Components: 
+    * BalanceSheet 
+    * BalanceSheetHeader
+    * BalanceSheetSession
+    * SessionMultiRowsWithTitle
+    * SessionOneRow
+    * SessionRow
+    * SessionTitle
+* Hook: 
+    * useFetchData
+    * useFetchDataWithSWR
 * types.ts and utilities.ts
 
 ## Unit Test using Jest and Testing-Library
 The testing coverage rate is 100%. It includes the following files in the tests folder:
 * BalanceSheet.test.tsx
-* BalanceSheetRow.test.tsx
 * BalanceSheetSession.test.tsx
+* SessionMultiRowsWithTitle.test.tsx
+* SessionRow.test.tsx
 * useFetchData.test.tsx
 * mockData.ts
 
@@ -74,3 +82,7 @@ The testing coverage rate is 100%. It includes the following files in the tests 
 ## Containerise the frontend in docker container
 Execute the command "docker build -t my-react-app ." and "docker run -p 3002:80 my-react-app" to run the frontend in docker container
 ![run frontend in docker container](screenshots/frontend-in-docker.png)
+
+## Note: 
+* The table is collapsible to hide/show details
+* Two ways in fetching data implemented in the hooks useFetchData and useFetchDataWithSWR
