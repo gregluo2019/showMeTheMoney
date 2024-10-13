@@ -3,9 +3,9 @@ import { SessionMultiRowsWithTitle } from './SessionMultiRowsWithTitle';
 import { SessionOneRow } from './SessionOneRow';
 import { SessionTitle } from './SessionTitle';
 
-type Props = { session: ISection; collapseAll: boolean };
+type Props = { session: ISection; collapseAll?: boolean };
 
-export function BalanceSheetSession({ session, collapseAll }: Props) {
+export function BalanceSheetSession({ session, collapseAll = false }: Props) {
   if (!session.Rows.length && session.Title) {
     return <SessionTitle title={session.Title} />;
   }

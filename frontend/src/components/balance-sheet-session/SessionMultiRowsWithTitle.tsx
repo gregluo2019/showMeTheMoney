@@ -2,9 +2,9 @@ import { ISection } from '@/src/core/types';
 import { useState } from 'react';
 import { SessionRow } from './SessionRow';
 
-type Props = { session: ISection; collapseAll: boolean };
+type Props = { session: ISection; collapseAll?: boolean };
 
-export function SessionMultiRowsWithTitle({ session, collapseAll }: Props) {
+export function SessionMultiRowsWithTitle({ session, collapseAll = false }: Props) {
   const [collapsed, setCollapsed] = useState(collapseAll);
 
   const header = session.Title;

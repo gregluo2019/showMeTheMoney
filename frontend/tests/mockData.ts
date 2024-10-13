@@ -1,4 +1,4 @@
-export const mockRow = {
+export const mockRow: any = {
   RowType: 'Row',
   Cells: [
     {
@@ -31,7 +31,7 @@ export const mockRow = {
   ],
 };
 
-export const mockSession = {
+export const mockSession: any = {
   RowType: 'Section',
   Title: 'Bank',
   Rows: [

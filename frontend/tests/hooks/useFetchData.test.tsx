@@ -7,7 +7,7 @@ describe('useFetchData hook', () => {
     global.fetch = jest.fn().mockRejectedValueOnce(new Error('Fetch failed'));
 
     const { result } = renderHook(() => useFetchData('url'));
-    expect(result.current.loading).toBe(true);
+    expect(result.current.isLoading).toBe(true);
   });
 
   it('should get error when fetching data failed', async () => {
