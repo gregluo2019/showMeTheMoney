@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export function useFetchData(url: string) {
   const [data, setData] = useState();
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export function useFetchData(url: string) {
           console.error('Fetch error:', error);
         }
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     })();
 
@@ -31,5 +31,5 @@ export function useFetchData(url: string) {
     };
   }, [url]);
 
-  return { error, loading, data };
+  return { error, isLoading, data };
 }
