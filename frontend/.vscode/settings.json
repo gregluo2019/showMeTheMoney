@@ -1,4 +1,5 @@
 {
+  "editor.showUnused": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
   },

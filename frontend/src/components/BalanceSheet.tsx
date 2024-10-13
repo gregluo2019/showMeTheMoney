@@ -1,14 +1,15 @@
 'use client';
+import { IHeader, ISection } from '@/src/core/types';
 import { useFetchData } from '@/src/hooks/useFetchData';
-import { BalanceSheetSession } from './BalanceSheetSession';
-import { ISection, IHeader } from '@/src/utils/types';
+import { BalanceSheetSession } from './balance-sheet-session/BalanceSheetSession';
+import { BalanceSheetHeader } from './BalanceSheetHeader';
 
 export function BalanceSheet() {
   const { error, data, loading } = useFetchData('http://localhost:3001/api/balanceSheet');
 
-  const reportsRows = (data as any)?.Reports?.[0]?.Rows;
-  const reportsRowsSections: ISection[] = reportsRows?.filter((reportRow: ISection | IHeader) => reportRow.RowType === 'Section');
-  const reportsRowsHeader: IHeader = reportsRows?.find((reportRow: ISection | IHeader) => reportRow.RowType === 'Header');
+  const reports = (data as any)?.Reports?.[0]?.Rows;
+  const reportsSections: ISection[] = reports?.filter((reportRow: ISection | IHeader) => reportRow.RowType === 'Section');
+  const reportsHeader: IHeader = reports?.find((reportRow: ISection | IHeader) => reportRow.RowType === 'Header');
   const reportTitle = (data as any)?.Reports?.[0]?.ReportTitles?.join(' - ');
 
   if (loading) {
@@ -26,24 +27,11 @@ export function BalanceSheet() {
         <tbody>
           <tr>
             <td>
-              <table className='w-full'>
-                <tbody>
-                  <tr>
-                    {reportsRowsHeader?.Cells.map((cell, index) => {
-                      return (
-                        <th key={index + cell.Value} className={`text-right ${index === 0 ? 'w-1/2' : 'w-1/4'}`}>
-                          {cell.Value}
-                        </th>
-                      );
-                    })}
-                  </tr>
-                </tbody>
-                <tbody></tbody>
-              </table>
+              <BalanceSheetHeader header={reportsHeader} />
             </td>
           </tr>
           <tr>
-            <td>{reportsRowsSections?.map((session, index) => <BalanceSheetSession session={session} key={session.Title + index} />)}</td>
+            <td>{reportsSections?.map((session, index) => <BalanceSheetSession session={session} key={session.Title + index} />)}</td>
           </tr>
         </tbody>
       </table>

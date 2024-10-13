@@ -1,7 +1,7 @@
+import { BalanceSheetSession } from '@/src/components/balance-sheet-session/BalanceSheetSession';
 import { render, screen } from '@testing-library/react';
-import { mockSession } from '../mockData';
-import { BalanceSheetSession } from 'src/components/BalanceSheetSession';
 import { act } from 'react';
+import { mockSession } from '../mockData';
 
 describe('BalanceSheetSession Component', () => {
   it('should show session title "Bank"', async () => {

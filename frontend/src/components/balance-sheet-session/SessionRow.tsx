@@ -1,14 +1,13 @@
-'use client';
-import { IRow } from '@/src/utils/types';
+import { IRow } from '@/src/core/types';
 import { isNumeric } from '@/src/utils/utilities';
 
-export function BalanceSheetRow({ row }: { row: IRow }) {
+export function SessionRow({ row }: { row: IRow }) {
   return (
     <>
       {row.Cells.map((cell, index) => {
         return (
           <td key={index + cell.Value} className={`${isNumeric(cell.Value) ? 'text-right' : ''} ${index === 0 ? 'w-1/2' : 'w-1/4'}`}>
-            {cell.Value}
+            {`${isNumeric(cell.Value) ? '$' : ''}${cell.Value}`}
           </td>
         );
       })}

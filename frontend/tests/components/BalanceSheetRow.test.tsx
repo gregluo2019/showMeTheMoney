@@ -1,7 +1,7 @@
+import { BalanceSheetRow } from '@/src/components/balance-sheet-session/SessionRow';
 import { render, screen } from '@testing-library/react';
-import { mockRow } from '../mockData';
-import { BalanceSheetRow } from 'src/components/BalanceSheetRow';
 import { act } from 'react';
+import { mockRow } from '../mockData';
 
 describe('BalanceSheetRow Component', () => {
   it('should show "My Bank Account"', async () => {
