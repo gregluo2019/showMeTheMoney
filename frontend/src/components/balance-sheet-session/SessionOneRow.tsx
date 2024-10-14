@@ -12,7 +12,7 @@ export function SessionOneRow({ row }: { row: IRow }) {
         </tbody>
       </table>
 
-      <div className='h-5 border-dotted border-t-2 w-full'></div>
+      <div className='h-5 border-dotted border-t-2 w-full' data-testid='divider'></div>
     </div>
   );
 }

@@ -117,6 +117,21 @@ export const mockSession: any = {
   ],
 };
 
+export const mockHeader: any = {
+  RowType: 'Header',
+  Cells: [
+    {
+      Value: '',
+    },
+    {
+      Value: '11 October 2024',
+    },
+    {
+      Value: '12 October 2023',
+    },
+  ],
+};
+
 export const mockData = {
   Status: 'OK',
   Reports: [
@@ -129,20 +144,7 @@ export const mockData = {
       UpdatedDateUTC: '/Date(1728641345420)/',
       Fields: [],
       Rows: [
-        {
-          RowType: 'Header',
-          Cells: [
-            {
-              Value: '',
-            },
-            {
-              Value: '11 October 2024',
-            },
-            {
-              Value: '12 October 2023',
-            },
-          ],
-        },
+        mockHeader,
         {
           RowType: 'Section',
           Title: 'Assets',
