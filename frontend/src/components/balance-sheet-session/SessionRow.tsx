@@ -6,7 +6,7 @@ export function SessionRow({ row }: { row: IRow }) {
     <>
       {row.Cells.map((cell, index) => {
         return (
-          <td key={index + cell.Value} className={`${isNumeric(cell.Value) ? 'text-right' : ''} ${index === 0 ? 'w-1/2' : 'w-1/4'}`}>
+          <td key={index + cell.Value} className={`${isNumeric(cell.Value) ? 'text-right ' : ''}${index === 0 ? 'w-1/2' : 'w-1/4'}`}>
             {`${isNumeric(cell.Value) ? '$' : ''}${cell.Value}`}
           </td>
         );

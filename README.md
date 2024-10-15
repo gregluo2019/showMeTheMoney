@@ -63,12 +63,18 @@ It includes the following files in the src folder:
 The testing coverage rate is 100%. It includes the following files in the tests folder:
 * BalanceSheet.test.tsx
 * BalanceSheetSession.test.tsx
+* BalanceSheetHeader.test.tsx
 * SessionMultiRowsWithTitle.test.tsx
+* SessionOneRow.test.tsx
 * SessionRow.test.tsx
+* SessionTitle.test.tsx
 * useFetchData.test.tsx
 * mockData.ts
 
 ![frontend tests](screenshots/frontend-tests.png)
+
+## End-to-End Test using Cypress
+![frontend e2e tests](screenshots/frontend-e2e-tests.png)
 
 ## Frontend file structure
 ![frontend file structure](screenshots/frontend-file-structure.png)
