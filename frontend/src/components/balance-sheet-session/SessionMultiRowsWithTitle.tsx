@@ -1,4 +1,4 @@
-import { ISection } from '@/src/core/types';
+import { ISection, RowType } from '@/src/core/types';
 import { useState } from 'react';
 import { SessionRow } from './SessionRow';
 
@@ -9,8 +9,8 @@ export function SessionMultiRowsWithTitle({ session, collapseAll = false }: Prop
 
   const header = session.Title;
 
-  const body = session.Rows.filter((row) => (collapsed ? row.RowType === 'SummaryRow' : true)).map((row, index) => (
-    <tr key={index} className={row.RowType === 'SummaryRow' ? 'font-bold' : ''}>
+  const body = session.Rows.filter((row) => (collapsed ? row.RowType === RowType.SummaryRow : true)).map((row, index) => (
+    <tr key={index} className={row.RowType === RowType.SummaryRow ? 'font-bold' : ''}>
       <SessionRow row={row} />
     </tr>
   ));
@@ -26,7 +26,7 @@ export function SessionMultiRowsWithTitle({ session, collapseAll = false }: Prop
           <th className='text-left text-lg'>{header}</th>
           <th></th>
           <th className='flex flex-row justify-end'>
-            <span onClick={toggleCollapse} style={{ cursor: 'pointer' }} className='text-sm font-light text-right mt-1'>
+            <span onClick={toggleCollapse} className='cursor-pointer text-sm font-light text-right mt-1'>
               {collapsed ? '⯆ Show Details' : '⯅ Hide Details'}
             </span>
           </th>

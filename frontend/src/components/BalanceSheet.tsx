@@ -1,5 +1,5 @@
 'use client';
-import { IHeader, ISection } from '@/src/core/types';
+import { IHeader, ISection, RowType } from '@/src/core/types';
 //import { useFetchData } from '@/src/hooks/useFetchData';
 import { useState } from 'react';
 import { useFetchDataWithSWR } from '../hooks/useFetchDataWithSWR';
@@ -11,8 +11,8 @@ export function BalanceSheet() {
   // const { error, data, isLoading } = useFetchData('http://localhost:3001/api/balanceSheet');
 
   const reports = (data as any)?.Reports?.[0]?.Rows;
-  const reportsSections: ISection[] = reports?.filter((reportRow: ISection | IHeader) => reportRow.RowType === 'Section');
-  const reportsHeader: IHeader = reports?.find((reportRow: ISection | IHeader) => reportRow.RowType === 'Header');
+  const reportsSections: ISection[] = reports?.filter((reportRow: ISection | IHeader) => reportRow.RowType === RowType.Section);
+  const reportsHeader: IHeader = reports?.find((reportRow: ISection | IHeader) => reportRow.RowType === RowType.Header);
   const reportTitle = (data as any)?.Reports?.[0]?.ReportTitles?.join(' - ');
 
   const [collapseAll, setCollapseAll] = useState(false);
